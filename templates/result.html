@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparison Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Comparison Analysis</h1>
+        <div class="analysis">
+            <pre>{{ analysis }}</pre>
+        </div>
+        <a href="{{ url_for('index') }}">Compare Another Set of Datasheets</a>
+    </div>
+</body>
+</html>
