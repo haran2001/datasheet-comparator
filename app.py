@@ -140,15 +140,132 @@ def compare_datasheets(text_a, text_b):
         text_a = truncate_text(text_a, max_tokens=per_text_tokens)
         text_b = truncate_text(text_b, max_tokens=per_text_tokens)
         prompt = f"""
-    You are an expert semiconductor product analyst. Compare the following two product datasheets and provide a detailed analysis of the differences. Highlight strengths and weaknesses of each product and suggest improvements for our product. Conclude with a strategic roadmap to enhance our product based on the comparison.
+    You are an expert semiconductor product analyst tasked with comparing two product datasheets from Company A and Company B. Your goal is to provide a comprehensive analysis that highlights the differences, strengths, and weaknesses of each product. Additionally, you should suggest actionable improvements for our product and outline a strategic roadmap based on your findings.
 
-    **Datasheet 1 (Company A):**
-    {text_a}
+**Datasheet 1 (Company A):**
 
-    **Datasheet 2 (Company B):**
-    {text_b}
 
-    **Analysis:**
+**Datasheet 2 (Company B):**
+
+**Instructions:**
+
+1. **Executive Summary**
+   - Provide a brief overview summarizing the key differences and similarities between the two products.
+
+2. **Detailed Comparison**
+   For each of the following critical aspects, compare the two products, highlighting strengths and weaknesses:
+
+   a. **Performance Metrics**
+      - Clock Speed
+      - Processing Power
+      - Efficiency
+      - Benchmark Results
+
+   b. **Power Consumption**
+      - Voltage Requirements
+      - Power Efficiency
+      - Thermal Design Power (TDP)
+
+   c. **Thermal Management**
+      - Cooling Solutions
+      - Heat Dissipation Techniques
+      - Operating Temperature Range
+
+   d. **Integration and Compatibility**
+      - Supported Interfaces (e.g., PCIe, USB)
+      - Compatibility with Existing Systems
+      - Ease of Integration
+
+   e. **Cost Analysis**
+      - Production Costs
+      - Pricing Strategy
+      - Cost-Effectiveness
+
+   f. **Reliability and Warranty**
+      - Mean Time Between Failures (MTBF)
+      - Warranty Period
+      - Reliability Ratings
+
+   g. **Manufacturing Process**
+      - Fabrication Technology (e.g., 7nm, 10nm)
+      - Yield Rates
+      - Scalability of Production
+
+   h. **Environmental Impact**
+      - Energy Consumption
+      - Use of Sustainable Materials
+      - Compliance with Environmental Standards
+
+   i. **Packaging and Form Factor**
+      - Physical Dimensions
+      - Packaging Materials
+      - Mounting Options
+
+   j. **Availability and Support**
+      - Supply Chain Reliability
+      - Customer Support Services
+      - Documentation and Resources
+
+   k. **Features and Specifications**
+      - Unique Selling Points (USPs)
+      - Technical Specifications
+      - Optional Features
+
+   l. **Security Features**
+      - Built-in Security Mechanisms
+      - Compliance with Security Standards
+      - Vulnerability Protections
+
+   m. **Scalability**
+      - Ability to Scale Performance
+      - Support for Future Upgrades
+      - Modular Design Elements
+
+3. **Strengths and Weaknesses**
+   - Summarize the primary strengths and weaknesses of each product based on the detailed comparison.
+
+4. **Recommendations for Improvement**
+   - Provide actionable suggestions to enhance our product by leveraging the strengths observed and addressing the weaknesses identified in the comparison.
+
+5. **Strategic Roadmap**
+   - Outline a strategic roadmap that includes short-term and long-term initiatives to implement the recommended improvements. Structure the roadmap with clear timelines and milestones. For example:
+
+     - **Q1 2024:**
+       - Initiate R&D on power-efficient architectures.
+       - Begin design modifications for improved thermal management.
+
+     - **Q2 2024:**
+       - Prototype new power-efficient models.
+       - Test and validate thermal solutions in various environments.
+
+     - **Q3 2024:**
+       - Initiate partnerships for broader compatibility standards.
+       - Begin cost analysis for production optimization.
+
+     - **Q4 2024:**
+       - Finalize design for next-gen products incorporating improvements.
+       - Plan marketing strategy highlighting enhanced features and competitive pricing.
+
+     - **Q1 2025:**
+       - Launch updated product line.
+       - Monitor market feedback and iterate as necessary.
+
+**Formatting Requirements:**
+- Use clear and descriptive headings for each section.
+- Present comparisons in a structured format, such as bullet points or tables, for readability.
+- Ensure the analysis is objective, data-driven, and free from biases.
+- Maintain professional and concise language throughout the report.
+
+**Additional Notes:**
+- If specific data is missing from either datasheet, note the absence and consider its potential impact on the analysis.
+- Highlight any innovative technologies or features that set one product apart from the other.
+- Consider the target market and use-cases for each product when evaluating their strengths and weaknesses.
+
+---
+
+**Example Output Structure:**
+
+
     """
 
     try:
